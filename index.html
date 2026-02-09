@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia Profesional - Desarrollador Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Experiencia Profesional</h1>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                        <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Desarrollador Web Full Stack</h1>
+                    <p class="hero-subtitle">Creando experiencias digitales impactantes con tecnología moderna</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Años de Experiencia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Proyectos Completados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Empresas</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('experiencia')">Ver Experiencia</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('proyectos')">Ver Proyectos</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Foto de perfil profesional">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Juan Martínez</h3>
+                            <p>Desarrollador Full Stack</p>
+                            <div class="profile-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia Profesional -->
+    <section id="experiencia" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiencia Profesional</h2>
+                <p class="section-subtitle">Mi trayectoria en diferentes empresas y proyectos</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Experiencia 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-badge">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <h3>Senior Developer</h3>
+                                <span class="timeline-date">2023 - Presente</span>
+                            </div>
+                            <div class="timeline-company">
+                                <div class="company-logo">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="company-info">
+                                    <h4>Tech Innovations S.A.</h4>
+                                    <p>Buenos Aires, Argentina</p>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Liderando el desarrollo de aplicaciones web escalables utilizando React, Node.js y MongoDB. Implementación de arquitecturas microservices y DevOps.</p>
+                                <div class="timeline-media">
+                                    <div class="media-item">
+                                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Oficina moderna">
+                                    </div>
+                                    <div class="media-item">
+                                        <video controls>
+                                            <source src="https://assets.mixkit.co/videos/preview/mixkit-teamwork-in-the-office-1217-large.mp4" type="video/mp4">
+                                            Tu navegador no soporta el video.
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="timeline-skills">
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">MongoDB</span>
+                                    <span class="skill-tag">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiencia 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-badge">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <h3>Full Stack Developer</h3>
+                                <span class="timeline-date">2021 - 2023</span>
+                            </div>
+                            <div class="timeline-company">
+                                <div class="company-logo">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="company-info">
+                                    <h4>Global Solutions</h4>
+                                    <p>Ciudad de México, México</p>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Desarrollo de plataformas e-commerce y sistemas de gestión empresarial. Trabajo con equipos internacionales y metodologías ágiles.</p>
+                                <div class="timeline-media">
+                                    <div class="media-item">
+                                        <img src="https://images.unsplash.com/photo-1552664199-fd52b2997536?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Reunión de equipo">
+                                    </div>
+                                </div>
+                                <div class="timeline-skills">
+                                    <span class="skill-tag">Vue.js</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">PostgreSQL</span>
+                                    <span class="skill-tag">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiencia 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-badge">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <h3>Frontend Developer</h3>
+                                <span class="timeline-date">2019 - 2021</span>
+                            </div>
+                            <div class="timeline-company">
+                                <div class="company-logo">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="company-info">
+                                    <h4>Mobile Tech</h4>
+                                    <p>Santiago, Chile</p>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Especializado en desarrollo de aplicaciones móviles híbridas y progresivas. Implementación de interfaces de usuario modernas y responsivas.</p>
+                                <div class="timeline-media">
+                                    <div class="media-item">
+                                        <video controls>
+                                            <source src="https://assets.mixkit.co/videos/preview/mixkit-programming-in-a-cafe-32110-large.mp4" type="video/mp4">
+                                            Tu navegador no soporta el video.
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="timeline-skills">
+                                    <span class="skill-tag">React Native</span>
+                                    <span class="skill-tag">Angular</span>
+                                    <span class="skill-tag">TypeScript</span>
+                                    <span class="skill-tag">UI/UX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiencia 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-badge">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <h3>Desarrollador Junior</h3>
+                                <span class="timeline-date">2017 - 2019</span>
+                            </div>
+                            <div class="timeline-company">
+                                <div class="company-logo">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="company-info">
+                                    <h4>Startup Digital</h4>
+                                    <p>Montevideo, Uruguay</p>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Primeros pasos en el desarrollo web. Creación de sitios web corporativos y landing pages. Aprendizaje continuo de nuevas tecnologías.</p>
+                                <div class="timeline-media">
+                                    <div class="media-item">
+                                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Trabajo en computadora">
+                                    </div>
+                                </div>
+                                <div class="timeline-skills">
+                                    <span class="skill-tag">HTML/CSS</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">PHP</span>
+                                    <span class="skill-tag">WordPress</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Destacados -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <p class="section-subtitle">Algunos de los proyectos más importantes en los que he trabajado</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>Plataforma E-commerce</h3>
+                        <p>Desarrollo completo de una tienda online con carrito de compras, pasarela de pagos y panel de administración.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Stripe</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-outline">Ver Demo</button>
+                            <button class="btn btn-outline">Código</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mobile App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Aplicación Móvil</h3>
+                        <p>Aplicación híbrida para gestión de tareas y productividad, disponible en iOS y Android.</p>
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Redux</span>
+                            <span>Firebase</span>
+                            <span>Push Notifications</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-outline">Ver Demo</button>
+                            <button class="btn btn-outline">Código</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dashboard Analytics">
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Panel de control para análisis de datos en tiempo real con gráficos interactivos y exportación de reportes.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>D3.js</span>
+                            <span>Python</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-outline">Ver Demo</button>
+                            <button class="btn btn-outline">Código</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Técnicas -->
+    <section id="habilidades" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <p class="section-subtitle">Tecnologías y herramientas con las que trabajo</p>
+            </div>
+            
+            <div class="skills-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <span>React</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Vue.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Angular</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>HTML/CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <span>Node.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>PHP</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Java</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Bases de Datos</h3>
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <span>MongoDB</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>PostgreSQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>MySQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Firebase</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Herramientas</h3>
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <span>Git</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Docker</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>AWS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>DevOps</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">¿Listo para trabajar juntos? Contactame</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>juan.martinez@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+54 9 11 1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h4>Portfolio</h4>
+                            <p>www.juanmartinez.dev</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Tu Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Experiencia Profesional</h3>
+                    <p>Desarrollando el futuro con código y creatividad</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Experiencia Profesional. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para videos -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <video id="modalVideo" controls></video>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
