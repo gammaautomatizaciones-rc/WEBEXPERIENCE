@@ -1,0 +1,114 @@
+/* Solución específica para problemas de scroll en móviles */
+
+/* Asegurar que el body tenga scroll natural */
+body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Solución para el header fijo en móviles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Evitar que interfiera con el scroll */
+    will-change: transform;
+}
+
+/* Asegurar que las secciones puedan scrollear */
+section {
+    min-height: 100vh;
+    overflow: visible;
+    position: relative;
+}
+
+/* Mejorar touch responsiveness */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Asegurar que los elementos interactivos respondan bien al touch */
+.btn, .nav-link, .project-card, .timeline-card {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    touch-action: manipulation;
+}
+
+/* Solución para el menú móvil */
+.nav-menu {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+/* Prevenir problemas de scroll en iOS */
+html {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+/* Asegurar que el contenido no se atasque */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Solución para el hero section */
+.hero {
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
+}
+
+/* Mejorar performance en móviles */
+.timeline-card, .project-card {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Asegurar que el scroll progresivo funcione */
+.scroll-progress {
+    will-change: width;
+}
+
+/* Solución para iOS Safari */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    body {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Prevenir zoom automático en inputs */
+input, textarea {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Solución para el modal de video */
+.modal {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+/* Mejorar scroll en dispositivos con poca memoria */
+@media (max-width: 768px) {
+    body {
+        overflow-anchor: none;
+    }
+    
+    section {
+        overflow-anchor: none;
+    }
+}

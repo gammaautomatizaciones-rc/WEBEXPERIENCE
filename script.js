@@ -477,33 +477,66 @@ function handleOrientationChange() {
     });
 }
 
-// 22. Optimización de eventos táctiles
+// 22. Optimización de eventos táctiles - SOLUCIÓN PARA SCROLL EN MÓVILES
 function initTouchOptimizations() {
-    // Mejorar el desempeño de scroll en móviles
+    // Variables para controlar el scroll
     let touchStartY = 0;
     let touchEndY = 0;
+    let isScrolling = false;
+    let scrollTimeout;
     
+    // Mejorar el desempeño de scroll en móviles SIN INTERFERIR
     document.addEventListener('touchstart', (e) => {
-        touchStartY = e.changedTouches[0].screenY;
+        touchStartY = e.touches[0].clientY;
+        isScrolling = false;
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', (e) => {
+        // Permitir scroll natural del navegador
+        // No interferir con el touchmove para que el scroll funcione correctamente
+        isScrolling = true;
     }, { passive: true });
     
     document.addEventListener('touchend', (e) => {
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipeGesture();
+        touchEndY = e.changedTouches[0].clientY;
+        
+        // Solo activar swipe gesture si no hubo scroll
+        if (!isScrolling) {
+            handleSwipeGesture();
+        }
+        
+        // Resetear después de un tiempo
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+        }, 100);
     }, { passive: true });
     
     function handleSwipeGesture() {
         const difference = touchStartY - touchEndY;
         
-        // Swipe down: scroll up
-        if (difference > 50) {
-            window.scrollBy({ top: -100, behavior: 'smooth' });
-        }
-        // Swipe up: scroll down
-        else if (difference < -50) {
-            window.scrollBy({ top: 100, behavior: 'smooth' });
+        // Solo activar swipe si el movimiento es significativo
+        if (Math.abs(difference) > 100) {
+            // Swipe down: scroll up
+            if (difference > 100) {
+                window.scrollBy({ top: -200, behavior: 'smooth' });
+            }
+            // Swipe up: scroll down
+            else if (difference < -100) {
+                window.scrollBy({ top: 200, behavior: 'smooth' });
+            }
         }
     }
+    
+    // Solución principal: Asegurar que el scroll funcione correctamente
+    document.body.style.overflow = 'visible';
+    document.body.style.height = 'auto';
+    
+    // Eliminar cualquier restricción de scroll que pueda existir
+    const preventScrollElements = document.querySelectorAll('*');
+    preventScrollElements.forEach(element => {
+        element.style.touchAction = 'auto';
+    });
 }
 
 // 23. Optimización de animaciones según performance del dispositivo
