@@ -377,14 +377,211 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// 13. Optimización para móviles
-if (window.innerWidth <= 768) {
-    // Desactivar efectos de parallax en móviles para mejor performance
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = 'none';
+// 13. Optimización para móviles y tablets
+function initMobileOptimizations() {
+    const isMobile = window.innerWidth <= 768;
+    const isTablet = window.innerWidth <= 1024;
+    
+    if (isMobile) {
+        // Desactivar efectos de parallax en móviles para mejor performance
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.transform = 'none';
+        }
+        
+        // Optimizar scroll en móviles
+        document.body.style.overflowX = 'hidden';
+        
+        // Mejorar touch interactions
+        const touchElements = document.querySelectorAll('.btn, .nav-link, .project-card, .timeline-card');
+        touchElements.forEach(element => {
+            element.style.touchAction = 'manipulation';
+        });
+        
+        // Evitar zoom automático en inputs
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.setAttribute('autocomplete', 'off');
+        });
+    }
+    
+    if (isTablet) {
+        // Ajustes para tablets
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            item.style.animationDuration = '0.4s';
+        });
     }
 }
+
+// 19. Detectar tipo de dispositivo
+function detectDeviceType() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // Detectar iOS
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+    
+    // Detectar Android
+    const isAndroid = /Android/.test(userAgent);
+    
+    // Detectar Desktop
+    const isDesktop = !isIOS && !isAndroid && window.innerWidth > 1024;
+    
+    // Añadir clases al body para estilos específicos
+    const body = document.body;
+    if (isIOS) body.classList.add('ios-device');
+    if (isAndroid) body.classList.add('android-device');
+    if (isDesktop) body.classList.add('desktop-device');
+    
+    return { isIOS, isAndroid, isDesktop };
+}
+
+// 20. Optimización de imágenes para diferentes dispositivos
+function optimizeImages() {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        // Añadir srcset para diferentes densidades de pantalla
+        if (img.src && !img.srcset) {
+            const baseSrc = img.src.replace(/\.(jpg|jpeg|png|webp)$/, '');
+            const extension = img.src.split('.').pop();
+            
+            img.srcset = `
+                ${baseSrc}@1x.${extension} 1x,
+                ${baseSrc}@2x.${extension} 2x,
+                ${baseSrc}@3x.${extension} 3x
+            `;
+        }
+        
+        // Lazy loading para imágenes fuera del viewport
+        if ('loading' in HTMLImageElement.prototype) {
+            img.loading = 'lazy';
+        }
+    });
+}
+
+// 21. Manejo de orientación del dispositivo
+function handleOrientationChange() {
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            // Recalcular posiciones después del cambio de orientación
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('loading');
+            });
+            
+            // Re-iniciar observadores
+            initScrollAnimations();
+            initTimelineAnimations();
+        }, 300);
+    });
+}
+
+// 22. Optimización de eventos táctiles
+function initTouchOptimizations() {
+    // Mejorar el desempeño de scroll en móviles
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipeGesture();
+    }, { passive: true });
+    
+    function handleSwipeGesture() {
+        const difference = touchStartY - touchEndY;
+        
+        // Swipe down: scroll up
+        if (difference > 50) {
+            window.scrollBy({ top: -100, behavior: 'smooth' });
+        }
+        // Swipe up: scroll down
+        else if (difference < -50) {
+            window.scrollBy({ top: 100, behavior: 'smooth' });
+        }
+    }
+}
+
+// 23. Optimización de animaciones según performance del dispositivo
+function optimizeAnimations() {
+    // Detectar si el dispositivo tiene buena performance
+    const isHighPerformance = navigator.hardwareConcurrency && 
+                             navigator.hardwareConcurrency >= 4 &&
+                             window.innerWidth > 768;
+    
+    if (!isHighPerformance) {
+        // Reducir complejidad de animaciones en dispositivos lentos
+        document.documentElement.style.setProperty('--animation-duration', '0.3s');
+        
+        // Desactivar animaciones 3D en dispositivos lentos
+        const cards = document.querySelectorAll('.timeline-card, .project-card');
+        cards.forEach(card => {
+            card.style.transform = 'none';
+            card.removeEventListener('mousemove', handleCardTilt);
+        });
+    }
+}
+
+// 24. Mejorar accesibilidad en móviles
+function enhanceMobileAccessibility() {
+    // Añadir aria-labels a botones importantes
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((btn, index) => {
+        if (!btn.getAttribute('aria-label')) {
+            btn.setAttribute('aria-label', `Botón ${index + 1}`);
+        }
+    });
+    
+    // Mejorar focus en móviles
+    document.addEventListener('touchstart', function(e) {
+        if (e.target.closest('button, a, input, textarea')) {
+            document.body.classList.add('touch-mode');
+        }
+    }, { passive: true });
+    
+    document.addEventListener('mousedown', function() {
+        document.body.classList.remove('touch-mode');
+    });
+}
+
+// 25. Gestión de memoria en móviles
+function manageMemory() {
+    // Limpiar videos cuando no están en uso
+    const videos = document.querySelectorAll('video');
+    
+    videos.forEach(video => {
+        video.addEventListener('pause', () => {
+            if (!video.paused && !video.ended && video.currentTime > 0) {
+                video.load();
+            }
+        });
+    });
+    
+    // Limpiar eventos cuando no son necesarios
+    window.addEventListener('beforeunload', () => {
+        videos.forEach(video => {
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+        });
+    });
+}
+
+// Llamar a las funciones de optimización
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileOptimizations();
+    detectDeviceType();
+    optimizeImages();
+    handleOrientationChange();
+    initTouchOptimizations();
+    optimizeAnimations();
+    enhanceMobileAccessibility();
+    manageMemory();
+});
 
 // 14. Accesibilidad - Mejorar focus
 document.addEventListener('keydown', (e) => {
